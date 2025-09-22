@@ -1,5 +1,6 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/functions" as *;
+@use "../abstracts/mixins" as *;
 
 .grid-container {
   display: grid;
@@ -9,7 +10,12 @@
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  height: 100%;
+  padding-bottom: 138px;
+  height: calc(100% - 138px);
+
+  @include respond-to("desktop") {
+    height: calc(100% - 197px);
+  }
 
   @media (min-width: 1024px) {
     max-width: px-to-rem(1360);

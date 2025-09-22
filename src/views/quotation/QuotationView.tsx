@@ -14,12 +14,13 @@ export default function Quotation() {
   const { setQuotation } = useQuotation();
   const { setUser } = useUser();
 
+  // TODO: no olvidar regresar a false los checkboxes
   const initiaValues: QuotationFormData = {
     documentType: "DNI",
     documentNumber: "",
     phoneNumber: "",
-    acceptTerms: false,
-    acceptPrivacyPolicy: false,
+    acceptTerms: true,
+    acceptPrivacyPolicy: true,
   };
 
   const {
@@ -91,7 +92,9 @@ export default function Quotation() {
             }}
             register={register}
           />
-          <button className='btn btn--black'>Cotiza aqui</button>
+          <button className='btn btn--black' type='submit'>
+            Cotiza aquí
+          </button>
         </form>
       </div>
     </div>

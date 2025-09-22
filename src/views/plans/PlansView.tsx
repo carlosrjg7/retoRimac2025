@@ -11,10 +11,6 @@ const PlanList = lazy(() => import("@/modules/plans/PlanList"));
 export default function Plans() {
   const navigate = useNavigate();
 
-  const handleBack = useCallback(() => {
-    navigate("/");
-  }, [navigate]);
-
   const { plans } = usePlans();
 
   const { user } = useUser();
@@ -45,15 +41,6 @@ export default function Plans() {
 
   return (
     <>
-      <div className='navbar'>
-        <div className='navbar__steps'>
-          <span className=''>1. Planes y coberturas</span>
-          <span className=''>2. Resumen</span>
-        </div>
-        <button className='navbar__nav-item' onClick={handleBack}>
-          {"<"} Volver
-        </button>
-      </div>
       <div className='plans'>
         <div className='plans__content'>
           <section aria-labelledby='choose-plan'>

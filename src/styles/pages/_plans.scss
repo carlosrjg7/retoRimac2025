@@ -6,12 +6,51 @@
 .plans {
   display: contents;
   &__content {
-    grid-column: 4 / span 4;
+    grid-column: span 4;
     padding: px-to-rem(24) 0;
 
     @include respond-to(desktop) {
-      grid-column: span 1;
+      grid-column: 4 / span 6;
       padding: px-to-rem(32) 0;
+    }
+  }
+
+  &__header {
+    font-family: $font-family-alt !important;
+    &-title {
+      text-align: left;
+      padding: 0;
+      font-weight: $font-weight-bold;
+      font-size: px-to-rem(28);
+      line-height: px-to-rem(36);
+
+      @include respond-to(desktop) {
+        text-align: center;
+        font-size: px-to-rem(40);
+        line-height: px-to-rem(48);
+      }
+    }
+
+    &-subtitle {
+      margin: 0 0 px-to-rem(24) 0;
+      color: $n-700;
+      font-size: px-to-rem(16);
+      line-height: px-to-rem(28);
+
+      @include respond-to(desktop) {
+        text-align: center;
+      }
+    }
+  }
+
+  &__cards-container {
+    display: grid;
+    gap: px-to-rem(16);
+    grid-template-columns: repeat(1, 1fr);
+
+    @include respond-to(desktop) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: px-to-rem(24);
     }
   }
 }

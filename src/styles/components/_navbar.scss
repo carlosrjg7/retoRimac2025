@@ -1,0 +1,66 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/functions" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/typography" as *;
+
+.navbar {
+  grid-column: span 12;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: $font-family-alt;
+  font-weight: 700;
+
+  &__steps {
+    display: flex;
+    gap: px-to-rem(8);
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    background-color: $blue-light;
+    width: 100%;
+    padding: px-to-rem(16);
+  }
+
+  &__nav-item {
+    display: flex;
+    align-items: center;
+    gap: px-to-rem(5);
+    font-size: px-to-rem(14);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: $blue;
+    font-family: $font-family-alt;
+    font-weight: 700;
+
+    &-icon {
+      position: relative;
+      width: px-to-rem(16);
+      height: px-to-rem(16);
+
+      &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        border: px-to-rem(2) solid $blue;
+        border-radius: 50%;
+        display: block;
+        position: relative; /* se vuelve contenedor para el ::after */
+      }
+
+      &::after {
+        content: "";
+        width: px-to-rem(4);
+        height: px-to-rem(4);
+        border: solid $blue;
+        border-width: 0 1px 1px 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(135deg);
+      }
+    }
+  }
+}

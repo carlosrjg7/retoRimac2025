@@ -18,10 +18,11 @@
 // Components
 @use "components/button" as *;
 @use "components/form" as *;
-@use "components/card" as *;
+@use "components/cardChoice" as *;
 @use "components/tag" as *;
 @use "components/checkbox" as *;
 @use "components/errorMessage" as *;
+@use "components/navbar" as *;
 
 // Pages
 @use "pages/quotation" as *;

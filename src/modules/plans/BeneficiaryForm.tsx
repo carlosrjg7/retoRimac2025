@@ -1,4 +1,6 @@
 import { memo } from "react";
+import { ChoicePlanOptions } from "@/constants";
+import PlanCardChoice from "./PlanCardChoice";
 
 type BeneficiaryFormProps = {
   onOptionSelect: (value: "myself" | "someone-else") => void;
@@ -7,42 +9,24 @@ type BeneficiaryFormProps = {
 
 function BeneficiaryForm({ onOptionSelect, userName }: BeneficiaryFormProps) {
   return (
-    <header>
-      <h1>{userName} ¿Para quién deseas cotizar?</h1>
-      <p>Selecciona la opción que se ajuste más a tus necesidades.</p>
-      <form>
-        <legend>
-          Selecciona la opción que se ajuste más a tus necesidades.
-        </legend>
-        <label htmlFor='myself'>
-          <figure>icono</figure>
-          <input
-            type='radio'
-            name='quotation-for'
-            onChange={() => onOptionSelect("myself")}
+    <header className='plans__header'>
+      <h1 className='plans__header-title'>
+        {userName} ¿Para quién deseas cotizar?
+      </h1>
+      <p className='plans__header-subtitle'>
+        Selecciona la opción que se ajuste más a tus necesidades.
+      </p>
+      <form className='plans__cards-container'>
+        {ChoicePlanOptions.map((option, index) => (
+          <PlanCardChoice
+            key={index}
+            onOptionSelect={onOptionSelect}
+            icon={option.icon}
+            title={option.title}
+            subtitle={option.subtitle}
+            valueOption={option.valueOption as "myself" | "someone-else"}
           />
-          <span>
-            <strong>Para mí</strong>
-            <br />
-            Cotiza tu seguro de salud y agrega familiares si así lo deseas.
-          </span>
-        </label>
-
-        <label htmlFor='someone-else'>
-          <figure>icono</figure>
-          <input
-            type='radio'
-            name='quotation-for'
-            onChange={() => onOptionSelect("someone-else")}
-          />
-
-          <span>
-            <strong>Para alguien más</strong>
-            <br />
-            Realiza una cotización para uno de tus familiares o cualquier
-            persona.
-          </span>
-        </label>
+        ))}
       </form>
     </header>
   );

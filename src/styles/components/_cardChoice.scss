@@ -1,0 +1,82 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/functions" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/typography" as *;
+
+.card-container-choice {
+  position: relative;
+  .card {
+    border-radius: px-to-rem(24);
+    padding: px-to-rem(16) px-to-rem(24) px-to-rem(40) px-to-rem(24);
+    @include shadow-card;
+
+    &__info {
+      font-size: px-to-rem(20);
+      line-height: px-to-rem(20);
+      color: $n-700;
+
+      &-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: px-to-rem(8);
+        flex-direction: row;
+        gap: px-to-rem(8);
+
+        @include respond-to(desktop) {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      &-title {
+        display: block;
+        font-weight: 900;
+        font-size: px-to-rem(20);
+        line-height: px-to-rem(28);
+        font-family: $font-family-alt !important;
+
+        @include respond-to(desktop) {
+          font-size: px-to-rem(20);
+          line-height: px-to-rem(28);
+        }
+      }
+
+      &-subtitle {
+        font-size: px-to-rem(12);
+        line-height: px-to-rem(20);
+        color: $n-700;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      top: px-to-rem(12);
+      right: px-to-rem(18);
+      content: "";
+      width: px-to-rem(24);
+      height: px-to-rem(24);
+      border-radius: 50%;
+      border: 2px solid $n-500;
+      background: white;
+    }
+  }
+  input[type="radio"] {
+    display: none;
+  }
+
+  input[type="radio"]:checked + .card {
+    box-shadow: 0 0 0 3px rgba($grey-100, 1);
+
+    &::after {
+      content: "✔";
+      color: white;
+      font-size: px-to-rem(14);
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $green-500;
+      border: 2px solid $green-500;
+    }
+  }
+}
