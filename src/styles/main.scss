@@ -1,0 +1,29 @@
+// Importar abstracts
+@use "abstracts/variables" as *;
+@use "abstracts/mixins" as *;
+@use "abstracts/functions" as *;
+@use "abstracts/typography" as *;
+
+// Base
+@use "base/reset" as *;
+@use "base/typography" as *;
+@use "base/globals" as *;
+@use "base/fonts" as *;
+
+// Layout
+@use "layout/header" as *;
+@use "layout/footer" as *;
+@use "layout/grid" as *;
+
+// Components
+@use "components/button" as *;
+@use "components/form" as *;
+@use "components/card" as *;
+@use "components/tag" as *;
+@use "components/checkbox" as *;
+@use "components/errorMessage" as *;
+
+// Pages
+@use "pages/quotation" as *;
+@use "pages/plans" as *;
+@use "pages/resume" as *;

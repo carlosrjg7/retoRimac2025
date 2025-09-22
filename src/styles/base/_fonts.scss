@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap");
+
+@font-face {
+  font-family: "BBR_Sonoma";
+  src: url("@/assets/fonts/BRSonoma-Regular.woff2") format("woff2"),
+    url("@/assets/fonts/BRSonoma-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BR_Sonoma";
+  src: url("@/assets/fonts/BRSonoma-Light.woff2") format("woff2"),
+    url("@/assets/fonts/BRSonoma-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BR_Sonoma";
+  src: url("@/assets/fonts/BRSonoma-Bold.woff2") format("woff2"),
+    url("@/assets/fonts/BRSonoma-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

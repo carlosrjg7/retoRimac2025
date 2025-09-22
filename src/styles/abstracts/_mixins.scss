@@ -1,0 +1,39 @@
+@use "sass:math";
+@use "../abstracts/variables" as *;
+@use "../abstracts/functions" as *;
+@use "../abstracts/typography" as *;
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == desktop {
+    @media (min-width: 769px) {
+      @content;
+    }
+  } @else if $breakpoint == tablet {
+    @media (min-width: 481px) and (max-width: 768px) {
+      @content;
+    }
+  }
+}
+
+@mixin form-field($width: 100%, $border-radius: 8px, $padding: 8px 16px) {
+  display: block;
+  width: $width;
+  font-family: $font-family-base;
+  font-size: px-to-rem(16);
+  color: $grey-100;
+  background-color: $white;
+  border: 1px solid $grey-60;
+  border-radius: $border-radius;
+  padding: $padding;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+    border-color: darken($grey-60, 15%);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+
+  &::placeholder {
+    color: $grey-60;
+  }
+}

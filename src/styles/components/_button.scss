@@ -1,0 +1,30 @@
+@use "../abstracts/functions" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/typography" as *;
+@use "../abstracts/variables" as *;
+
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: px-to-rem(20) px-to-rem(40);
+  font-size: px-to-rem(20);
+  font-weight: bold;
+  line-height: px-to-rem(24);
+  border: none;
+  border-radius: px-to-rem(40);
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+
+  @include respond-to(desktop) {
+    padding: px-to-rem(20) px-to-rem(40);
+    font-size: 20px;
+    width: fit-content;
+  }
+
+  &--black {
+    color: $white;
+    background-color: $grey-100;
+  }
+}

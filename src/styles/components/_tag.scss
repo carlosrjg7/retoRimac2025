@@ -1,0 +1,25 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/functions" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/typography" as *;
+
+.tag {
+  display: inline-block;
+  font-family: $font-family-base;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  line-height: px-to-rem(16);
+  color: $grey-100;
+  margin-bottom: px-to-rem(16);
+  padding: px-to-rem(2) px-to-rem(8) !important;
+
+  @include respond-to(desktop) {
+    font-size: $font-size-md;
+    padding: px-to-rem(4) px-to-rem(8) !important;
+  }
+
+  &--green {
+    background: $linearGradient;
+    border-radius: px-to-rem(4);
+  }
+}

@@ -1,0 +1,72 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/functions" as *;
+@use "../abstracts/typography" as *;
+
+.header {
+  padding: px-to-rem(12) 0;
+
+  @include respond-to(desktop) {
+    padding: px-to-rem(24) 0;
+  }
+
+  &__content {
+    @include flex-section(
+      $direction-mobile: row,
+      $direction-desktop: row,
+      $justify-mobile: space-between,
+      $justify-desktop: space-between
+    );
+    max-width: px-to-rem(1360);
+    margin: 0 auto;
+  }
+
+  &__logo {
+    img {
+      height: px-to-rem(40);
+
+      @include respond-to(desktop) {
+        height: px-to-rem(50);
+      }
+    }
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: px-to-rem(16);
+    color: #333;
+    gap: px-to-rem(16);
+
+    @include respond-to(desktop) {
+      font-size: px-to-rem(16);
+    }
+  }
+
+  &__info {
+    display: none;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-sm;
+    @include respond-to(desktop) {
+      display: block;
+    }
+  }
+
+  &__phone {
+    display: flex;
+    align-items: center;
+    gap: px-to-rem(8);
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+
+    @include respond-to(desktop) {
+      font-size: $font-size-lg;
+    }
+
+    img {
+      height: px-to-rem(16);
+      margin-bottom: px-to-rem(5);
+    }
+  }
+}

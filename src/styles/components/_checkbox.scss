@@ -1,0 +1,41 @@
+/* Contenedor del checkbox */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  cursor: pointer;
+  user-select: none;
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  /* Caja personalizada */
+  .custom-checkbox {
+    width: 16px;
+    height: 16px;
+    background-color: black;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    position: relative;
+
+    /* Palomita */
+    &::after {
+      content: "";
+      width: 4px;
+      height: 6px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      opacity: 0;
+    }
+  }
+
+  /* Cuando el checkbox está marcado */
+  input[type="checkbox"]:checked + .custom-checkbox::after {
+    opacity: 1;
+  }
+}

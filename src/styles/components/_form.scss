@@ -1,0 +1,47 @@
+@use "../abstracts/functions" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/typography" as *;
+@use "../abstracts/variables" as *;
+
+.quotation-form {
+  display: flex;
+  flex-direction: column;
+  gap: px-to-rem(16);
+
+  &__group {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    width: 100%;
+
+    &-select {
+      @include form-field(40%, 8px 0 0 8px);
+      height: px-to-rem(56);
+    }
+
+    &-input {
+      @include form-field(60%, 0 8px 8px 0);
+      height: px-to-rem(56);
+      font-size: $font-size-base;
+      border-width: 1px 1px 1px 0px;
+
+      &-full {
+        @include form-field(100%);
+        height: px-to-rem(56);
+      }
+    }
+  }
+
+  &__link {
+    color: $grey-100;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-sm;
+    text-decoration: none;
+    margin-top: px-to-rem(8);
+    margin-bottom: px-to-rem(16);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

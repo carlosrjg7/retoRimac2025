@@ -1,0 +1,44 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/functions" as *;
+@use "../abstracts/typography" as *;
+
+.footer {
+  background-color: $grey-100;
+
+  &__content {
+    @include flex-section(
+      $direction-mobile: column,
+      $direction-desktop: row,
+      $justify-mobile: space-between,
+      $justify-desktop: space-between
+    );
+    padding: px-to-rem(32) px-to-rem(24);
+
+    @include respond-to(desktop) {
+      padding: px-to-rem(32) px-to-rem(120);
+    }
+  }
+
+  &__logo {
+    img {
+      height: px-to-rem(20);
+      width: auto;
+
+      @include respond-to(desktop) {
+        height: px-to-rem(42);
+      }
+    }
+  }
+
+  &__copy {
+    font-size: $font-size-sm;
+    color: $grey-10;
+    margin-top: px-to-rem(12);
+
+    @include respond-to(desktop) {
+      margin-top: 0;
+      font-size: $font-size-base;
+    }
+  }
+}

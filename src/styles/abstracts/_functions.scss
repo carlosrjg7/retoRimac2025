@@ -1,0 +1,49 @@
+@use "sass:math";
+
+@function px-to-rem($px, $base: 16) {
+  @return math.div($px, $base) * 1rem;
+}
+
+@function rem-to-px($rem, $base: 16) {
+  @return math.div($rem, 1rem) * $base;
+}
+
+// Mixin para secciones con flex
+@mixin flex-section(
+  $direction-mobile: column,
+  $direction-desktop: row,
+  $justify-mobile: center,
+  $justify-desktop: space-between
+) {
+  display: flex;
+  flex-direction: $direction-mobile;
+  justify-content: $justify-mobile;
+  align-items: center;
+  gap: px-to-rem(16);
+  padding: 0 px-to-rem(24);
+
+  @media (min-width: 768px) {
+    flex-direction: $direction-desktop;
+    justify-content: $justify-desktop;
+    align-items: center;
+    gap: px-to-rem(32);
+    max-width: px-to-rem(1360);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 px-to-rem(120);
+  }
+}
+
+// Mixin para secciones internas
+@mixin grid-section() {
+  display: grid;
+  grid-template-columns: repeat($columns-mobile, 1fr);
+  gap: px-to-rem($gap-mobile);
+  padding: 0 px-to-rem($gap-mobile);
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat($columns-desktop, 1fr);
+    gap: px-to-rem($gap-desktop);
+    max-width: $max-width;
+  }
+}

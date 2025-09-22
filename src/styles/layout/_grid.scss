@@ -1,0 +1,20 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/functions" as *;
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat($grid-columns-mobile, 1fr);
+  gap: px-to-rem(16);
+  padding: 0 px-to-rem(24);
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+
+  @media (min-width: 1024px) {
+    max-width: px-to-rem(1360);
+    grid-template-columns: repeat($grid-columns-desktop, 1fr);
+    gap: px-to-rem(32);
+    padding: 0 px-to-rem(120);
+  }
+}

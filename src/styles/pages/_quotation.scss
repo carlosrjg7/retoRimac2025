@@ -1,0 +1,110 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/functions" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/typography" as *;
+
+.quotation {
+  display: contents;
+
+  &__banner {
+    grid-column: span 4;
+    border-bottom: px-to-rem(1) solid $grey-30;
+    padding-bottom: px-to-rem(24);
+
+    @include respond-to(desktop) {
+      grid-column: span 6;
+      padding: px-to-rem(32) 0;
+    }
+
+    &-mobile {
+      display: block;
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+
+      @include respond-to(desktop) {
+        display: none;
+      }
+
+      &-heading {
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
+        text-align: left;
+
+        h1 {
+          font-size: px-to-rem(28);
+          line-height: px-to-rem(36);
+
+          margin: 0;
+          padding-right: px-to-rem(16);
+        }
+      }
+
+      &-image {
+        margin-right: auto;
+        width: 100%;
+        max-width: px-to-rem(136);
+        object-fit: contain;
+      }
+    }
+
+    &-desktop {
+      display: none;
+
+      @include respond-to(desktop) {
+        display: block;
+        grid-column: span 6;
+      }
+    }
+  }
+
+  &__content-form {
+    grid-column: span 4;
+    padding: 0 0 px-to-rem(16) 0;
+
+    @include respond-to(desktop) {
+      grid-column: 8 / span 4;
+      padding: px-to-rem(32) 0;
+    }
+
+    &-desktop-heading {
+      display: none;
+
+      @include respond-to(desktop) {
+        display: block;
+        margin-bottom: px-to-rem(24);
+
+        h1 {
+          font-size: $font-size-xxl;
+          line-height: px-to-rem(40);
+          margin: 0;
+        }
+
+        p {
+          font-size: $font-size-md;
+          line-height: px-to-rem(20);
+          margin: px-to-rem(8) 0 0 0;
+          font-weight: 600;
+        }
+      }
+    }
+
+    &-mobile-heading {
+      display: block;
+      margin-bottom: px-to-rem(24);
+
+      p {
+        font-size: $font-size-md;
+        line-height: px-to-rem(20);
+        margin: px-to-rem(0) 0 0 0;
+        font-weight: 600;
+      }
+
+      @include respond-to(desktop) {
+        display: none;
+      }
+    }
+  }
+}

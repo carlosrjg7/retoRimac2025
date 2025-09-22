@@ -1,0 +1,51 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/functions" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/typography" as *;
+
+.container {
+  &--bg-root {
+    background-color: #f8f9ff;
+    background: linear-gradient(
+      67deg,
+      rgb(131, 58, 180) 0%,
+      rgb(248, 249, 255) 18%,
+      rgb(248, 249, 255) 53%,
+      rgb(248, 249, 255) 86%,
+      rgb(0, 244, 226) 100%
+    );
+  }
+
+  &--bg-white {
+    background-color: #fafbff;
+  }
+}
+
+.navbar {
+  grid-column: span 12;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: $font-family-alt;
+  font-weight: 700;
+
+  &__steps {
+    display: flex;
+    gap: px-to-rem(8);
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    background-color: $blue-light;
+    width: 100%;
+    padding: px-to-rem(16);
+  }
+
+  &__nav-item {
+    font-size: $font-size-lg;
+    color: $blue;
+    font-weight: $font-weight-medium;
+    text-align: left;
+    padding: px-to-rem(8) px-to-rem(16);
+  }
+}
