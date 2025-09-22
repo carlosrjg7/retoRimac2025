@@ -33,7 +33,9 @@ export const PlansResponseSchema = z.object({
 export type PlansResponse = z.infer<typeof PlansResponseSchema>;
 
 /* Quotation Form */
-export const DocumentTypeSchema = z.enum(["DNI", "CE", "PASAPORTE"]);
+export const DocumentTypeSchema = z.enum(["DNI", "CE", "PASAPORTE"], {
+  message: "El tipo de documento es obligatorio",
+});
 
 export const QuotationForSchema = z
   .enum(["myself", "someone-else"])
@@ -43,12 +45,25 @@ export type QuotationFor = z.infer<typeof QuotationForSchema>;
 
 export const QuotationFormSchema = z.object({
   documentType: DocumentTypeSchema,
-  documentNumber: z.string().min(8).max(11).nonempty({
-    message: "El número de documento es obligatorio",
-  }),
-  phoneNumber: z.string().length(9).nonempty({
-    message: "El número de teléfono es obligatorio",
-  }),
+  documentNumber: z
+    .string()
+    .nonempty({
+      message: "El número de documento es obligatorio",
+    })
+    .regex(/^\d+$/, { message: "El número de documento debe ser numérico" })
+    .min(8, {
+      message: "El número de documento debe tener entre 8 y 11 caracteres",
+    })
+    .max(11, {
+      message: "El número de documento debe tener entre 8 y 11 caracteres",
+    }),
+  phoneNumber: z
+    .string()
+    .nonempty({
+      message: "El número de teléfono es obligatorio",
+    })
+    .regex(/^\d+$/, { message: "El número de teléfono debe ser numérico" })
+    .length(9, { message: "El número de teléfono debe tener 9 caracteres" }),
   acceptTerms: z.boolean().refine((val) => val === true, {
     message: "Debe aceptar los términos y condiciones",
   }),
