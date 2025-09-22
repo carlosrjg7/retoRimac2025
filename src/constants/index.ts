@@ -1,5 +1,7 @@
 import IconProtection from "@/assets/images/IcProtectionLight.png";
 import IconUserPlus from "@/assets/images/IcAddUserLight.png";
+import IconHome from "@/assets/images/IcHomeLight.png";
+import IconHospital from "@/assets/images/IcHospitalLight.png";
 
 export const ChoicePlanOptions = [
   {
@@ -16,3 +18,5 @@ export const ChoicePlanOptions = [
     valueOption: "someone-else",
   },
 ];
+
+export const ICONS_PLANS = [IconHome, IconHospital, IconHome];

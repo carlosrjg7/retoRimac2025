@@ -1,0 +1,68 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/functions" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/typography" as *;
+
+.resume {
+  display: contents;
+  @include lato;
+
+  &-content {
+    grid-column: span 4;
+    padding: px-to-rem(24) 0;
+
+    @include respond-to(desktop) {
+      grid-column: 2 / span 10;
+      padding: px-to-rem(32) 0;
+    }
+
+    &-header {
+      width: 100%;
+      text-align: center;
+      font-size: px-to-rem(32);
+      font-weight: bold;
+      line-height: px-to-rem(32);
+      margin: px-to-rem(40) px-to-rem(0) px-to-rem(40) px-to-rem(0);
+
+      @include respond-to(desktop) {
+        margin-bottom: px-to-rem(24);
+        text-align: left;
+        font-size: px-to-rem(40);
+        line-height: px-to-rem(48);
+      }
+    }
+
+    &-details {
+      @include shadow-card;
+      padding: px-to-rem(32) px-to-rem(24);
+      border-radius: px-to-rem(24);
+
+      &-user {
+        display: flex;
+        align-items: center;
+        gap: px-to-rem(8);
+        justify-content: start;
+        font-size: px-to-rem(20);
+        line-height: px-to-rem(40);
+        font-weight: bold;
+        border-bottom: 1px solid $n-400;
+        padding-bottom: px-to-rem(16);
+      }
+
+      &-data {
+        margin-top: px-to-rem(16);
+        .title {
+          color: $n-700;
+          font-size: px-to-rem(16);
+          font-weight: bold;
+          line-height: px-to-rem(24);
+          margin-bottom: px-to-rem(8);
+        }
+
+        p {
+          font-size: px-to-rem(14);
+        }
+      }
+    }
+  }
+}

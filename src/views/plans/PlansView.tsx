@@ -42,7 +42,7 @@ export default function Plans() {
   return (
     <>
       <div className='plans'>
-        <div className='plans__content'>
+        <div className='plans__content-options'>
           <section aria-labelledby='choose-plan'>
             <Suspense fallback={<p>Cargando beneficiario...</p>}>
               <BeneficiaryForm
@@ -50,17 +50,19 @@ export default function Plans() {
                 userName={user?.name ?? "Usuario"}
               />
             </Suspense>
-
-            {quotation?.quotationFor && (
-              <Suspense fallback={<p>Cargando planes...</p>}>
-                <PlanList
-                  plans={decoratedPlans}
-                  onSelectPlan={handleSelectPlan}
-                />
-              </Suspense>
-            )}
           </section>
         </div>
+
+        <section className='plans__plans-list' aria-labelledby='plans-title'>
+          {quotation?.quotationFor && (
+            <Suspense fallback={<p>Cargando planes...</p>}>
+              <PlanList
+                plans={decoratedPlans}
+                onSelectPlan={handleSelectPlan}
+              />
+            </Suspense>
+          )}
+        </section>
       </div>
     </>
   );

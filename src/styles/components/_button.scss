@@ -27,4 +27,12 @@
     color: $white;
     background-color: $grey-100;
   }
+
+  &--red {
+    background-color: $rimac;
+    color: $white;
+    padding: px-to-rem(14) px-to-rem(32);
+    @include lato;
+    line-height: px-to-rem(20);
+  }
 }

@@ -1,0 +1,101 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/functions" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/typography" as *;
+
+.plan-card {
+  max-width: 100%;
+  flex: 1 1 100%;
+  @include shadow-card;
+  border-radius: px-to-rem(24);
+  padding: px-to-rem(40) px-to-rem(32) px-to-rem(48) px-to-rem(32);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: px-to-rem(662);
+
+  @include respond-to(desktop) {
+    max-width: px-to-rem(288);
+    flex: 1 1 calc(33.3333% - 16px);
+    height: px-to-rem(687);
+  }
+
+  &__header {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    border-bottom: 1px solid $grey-30;
+
+    &-title {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      font-size: px-to-rem(24);
+      font-weight: 900;
+      @include lato;
+      line-height: px-to-rem(24);
+      width: 100%;
+      margin-bottom: px-to-rem(24);
+      h3 {
+        margin: 0;
+        line-height: px-to-rem(32);
+
+        @include respond-to(desktop) {
+          line-height: px-to-rem(36);
+          font-size: px-to-rem(24) !important;
+        }
+      }
+    }
+
+    &-price {
+      width: 100%;
+      color: $n-600;
+
+      &--original {
+        font-size: px-to-rem(12);
+        text-transform: uppercase;
+        font-weight: 900;
+        line-height: px-to-rem(16);
+        @include lato;
+
+        @include respond-to(desktop) {
+          font-size: px-to-rem(12);
+          line-height: px-to-rem(28);
+        }
+
+        &-amount {
+          font-size: px-to-rem(14) !important;
+          color: $n-700;
+          line-height: px-to-rem(20);
+          @include lato;
+          text-decoration: line-through;
+          color: $n-600;
+        }
+      }
+
+      &--final {
+        color: $n-700;
+        font-size: px-to-rem(20);
+        font-weight: 900;
+        line-height: px-to-rem(28);
+        @include lato;
+      }
+    }
+  }
+
+  &__benefits {
+    list-style: outside;
+    padding: 16px;
+    flex: 1;
+
+    li {
+      font-size: px-to-rem(16);
+      line-height: px-to-rem(28);
+      @include lato;
+      color: $n-700;
+      margin-bottom: px-to-rem(16);
+      font-weight: 400;
+    }
+  }
+}
