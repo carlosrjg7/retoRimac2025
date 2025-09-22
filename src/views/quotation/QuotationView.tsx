@@ -14,13 +14,12 @@ export default function Quotation() {
   const { setQuotation } = useQuotation();
   const { setUser } = useUser();
 
-  // TODO: no olvidar regresar a false los checkboxes
   const initiaValues: QuotationFormData = {
     documentType: "DNI",
     documentNumber: "",
     phoneNumber: "",
-    acceptTerms: true,
-    acceptPrivacyPolicy: true,
+    acceptTerms: false,
+    acceptPrivacyPolicy: false,
   };
 
   const {
