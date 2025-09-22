@@ -45,3 +45,7 @@ Se utilizó el **patrón Decorator** para aplicar descuentos dinámicos a los pl
 
 - Desarrollado por [Carlos Raul García]
 - Tecnologías principales: React, TypeScript, Sass, React Hook Form, Zod, axios
+
+## variable de entorno local .env.local
+
+VITE_API_URL=https://rimac-front-end-challenge.netlify.app/api
